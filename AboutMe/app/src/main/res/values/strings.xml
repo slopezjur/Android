@@ -2,4 +2,17 @@
     <string name="app_name">About Me</string>
     <string name="name">Jacky Teriyaki</string>
     <string name="yellow_star">Yellow star</string>
+
+    <string name="bio">Hello there!
+\n\nI\'m Jacky Teriyaki.
+\n\nI look like a little bunny Belier, because I am.
+\n\nI like to eat carrots and walls. I\'m really good doing holes.
+\n\nFeel free to feed me whenever you want (corasaóh).
+\n\nFeel free to feed me whenever you want (corasaóh).
+\n\nFeel free to feed me whenever you want (corasaóh).
+\n\nFeel free to feed me whenever you want (corasaóh).
+\n\nFeel free to feed me whenever you want (corasaóh).
+\n\nFeel free to feed me whenever you want (corasaóh).</string>
+    <string name="what_is_your_nickname">What is your Nickname?</string>
+    <string name="done">Done</string>
 </resources>
