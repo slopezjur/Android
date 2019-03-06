@@ -3,6 +3,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable name="myName"
+                  type="com.example.android.MyName" />
+    </data>
+
     <LinearLayout
               android:orientation="vertical"
               android:layout_width="match_parent"
@@ -14,7 +19,7 @@
                 android:id="@+id/name_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
+                android:text="@={myName.name}"
                 android:textAlignment="center"
                 style="@style/NameStyle"/>
 
@@ -36,14 +41,19 @@
                 android:text="@string/done"/>
 
         <TextView
+                android:id="@+id/nickname_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/nickname_text" style="@style/NameStyle"
-                android:textAlignment="center" android:visibility="gone"/>
+                android:layout_height="wrap_content"
+                style="@style/NameStyle"
+                android:textAlignment="center"
+                android:visibility="gone"
+                android:text="@={myName.nickname}"/>
         <ImageView
                 android:id="@+id/star_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/btn_star_big_on" android:contentDescription="@string/yellow_star"
+                app:srcCompat="@android:drawable/btn_star_big_on"
+                android:contentDescription="@string/yellow_star"
                 android:layout_marginTop="@dimen/layout_margin"/>
 
         <ScrollView
