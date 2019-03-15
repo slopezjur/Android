@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AndroidCodeTest</string>
+
+    <string name="menu_add_text">Add</string>
+    <string name="menu_search_text">Search</string>
+    <string name="menu_user_item_delete_text">Delete</string>
+    <string name="menu_register_user_text">Confirm</string>
+
+    <string name="item_user_menu_option">⋮</string>
+    <string name="fragment_user_list_empty_text">List is empty! Try to add new users</string>
+
+    <string name="register_user_name_hint">Name</string>
+    <string name="register_user_birthdate_hint">Birthdate</string>
+
+    <string name="validation_empty_error_message">Field cannot be empty</string>
+
+</resources>
