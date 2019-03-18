@@ -2,6 +2,7 @@ package com.innocv.androidcodetest.presentation.main.presenter
 
 import com.innocv.androidcodetest.domain.User
 import com.innocv.androidcodetest.domain.exception.RepositoryException
+import com.innocv.androidcodetest.domain.interactor.delete.DeleteUserUseCase
 import com.innocv.androidcodetest.domain.interactor.user.UserListUseCase
 import com.innocv.androidcodetest.help.mockUser
 import com.innocv.androidcodetest.help.onAnswer
@@ -9,7 +10,6 @@ import com.innocv.androidcodetest.presentation.main.view.UserListView
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,14 +20,19 @@ import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class UserListPresenterTest {
+class  UserListPresenterTest {
 
     @InjectMocks
     private lateinit var presenter: UserListPresenter
 
-    private lateinit var view: UserListView
-
+    @Mock
     private lateinit var userListUseCase: UserListUseCase
+
+    @Mock
+    private lateinit var deleteUserUseCase: DeleteUserUseCase
+
+    @Mock
+    private lateinit var view: UserListView
 
     @Before
     fun setUp() {
@@ -56,7 +61,7 @@ class UserListPresenterTest {
         verify(view).showEmptyView()
     }
 
-    @Test()
+    @Test
     fun onAttach_whenLoadUserListFail_shouldErrorMessage() {
         Mockito.doAnswer {
             it.onAnswer { RepositoryException("Test Error") }
@@ -68,6 +73,17 @@ class UserListPresenterTest {
     }
 
     // TODO onClickDelete
+
+    @Test
+    fun onAttach_whenDeleteUser_shouldDeleteUser() {
+        doAnswer {
+            it.onAnswer { mockUser() }
+        }.whenever(deleteUserUseCase).executeAsync(any(), any(), any())
+
+        presenter.onAttach(view)
+
+        verify(view).onUserDeleted(any())
+    }
 
     private fun stubEmptyList(): List<User> = emptyList()
 

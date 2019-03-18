@@ -88,6 +88,7 @@ class UserDataRepositoryTest {
         }
     }
 
+    @Test
     fun deleteUser_whenCallToRepository_shouldReturnSuccess() {
 
         val mockUser = mockUser()
@@ -107,5 +108,4 @@ class UserDataRepositoryTest {
             "Stub",
             "2018-09-12T00:00:00"
     )
-
 }
